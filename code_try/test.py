@@ -56,13 +56,12 @@ for the_file in files:
     count=0
     vidcap = cv2.VideoCapture("../videos/"+the_file)
     for goal_start, goal_end in capture_duration:
+        # part I
         # this part to get frames
         # of the non goal part
         vidcap.set(cv2.CAP_PROP_POS_MSEC, start_time)
         time_temp=start_time
         print("At the beginning, this will run from {}, till {}".format(time_temp,goal_start))
-
-        
         success=True
         while success and time_temp<goal_start:
             success, image = vidcap.read()
@@ -79,7 +78,7 @@ for the_file in files:
 
 
 
-
+        # part II
         # this part to get frames
         # of the goal part
         # now the frames before the goal have been proessed
